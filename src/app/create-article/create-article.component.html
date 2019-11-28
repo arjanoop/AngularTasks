@@ -1,0 +1,71 @@
+<div class="row create-article-section">
+        <div class="col-lg-6 col-md-6 col-xs-6">
+            <div class="row">
+                <label>Heading</label><br>
+            </div>
+            <br>
+            <div class="row">
+                <input type="text" class="btn bg-light create-article-input heading-input" #heading required>
+            </div>
+            <br>
+            <br>
+            <div class="row">
+                <label>Short Description</label><br>
+            </div>
+            <br>
+            <div class="row">
+                <input type="text" class="btn bg-light create-article-input short-description-input" #shortDescription required>
+            </div>
+            <br>
+            <br>
+            <div class="row">
+                <label>Content</label><br>
+            </div>
+            <br>
+            <div class="row">
+                <textarea rows="5" cols="60%" class="btn bg-light text-area-1 content-input" #content required></textarea>
+            </div>
+            <br>
+            <br>
+        </div>
+        <div class="col-lg-6 col-md-6 col-xs-6">
+            <div class="row">
+                <label>Date</label><br>
+            </div>
+            <br>
+            <div class="row">
+                <input type="datetime-local" class="btn bg-light create-article-input date-input" #date required> 
+            </div>
+            <br>
+            <br>
+            <div class="row">
+                <label>Author</label><br>
+            </div>
+            <br>
+            <div class="row">
+                <input type="text" class="btn bg-light create-article-input author-input" #author required>
+            </div>
+            <br>
+            <br>
+            <div class="row">
+                <label>Short Url</label><br>
+            </div>
+            <br>
+            <div class="row">
+                <input type="text" class="btn bg-light create-article-input" #url required>
+            </div>
+            <br>
+            <br>
+            <div class="row create-article-button-container">
+                <a routerLink ="/content">
+                    <button class="btn btn-primary bg-secondary create-article-button" type="submit" 
+                    (click)="saveArticle(heading.value, shortDescription.value, content.value, date.value, author.value, url.value)">
+                        &nbsp;&nbsp;&nbsp;SAVE&nbsp;&nbsp;&nbsp;
+                    </button>
+                </a>
+                <a routerLink ="/content">
+                    <button class="btn btn-primary bg-secondary create-article-button" type="reset" (click)="navbarStatus()">CANCEL</button>        
+                </a>
+            </div>
+        </div>
+</div>

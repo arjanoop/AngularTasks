@@ -1,0 +1,89 @@
+*{
+    margin-bottom: 0px;
+}
+
+input{
+    text-align: left !important;
+}
+
+.header{
+    padding-left: 0px;
+    padding-right: 0px;
+    position: fixed;
+    left: 0;
+    top: 0;
+    border : solid black 3px;
+    z-index:1
+}
+.headerbar{
+    padding: 15px;
+}
+
+.news-aggregator-label{
+    padding-left: 20px;
+    font-size: 20px;
+    font-weight: bolder;
+}
+
+.label-user-login{
+    text-align: right;
+    margin-bottom: 0px;
+    margin-top: 5px;
+}
+
+.button-logout{
+    align-items: center;
+}
+.btn{
+    background-color:	#00F1D4;
+    border: none;
+    color: black;
+}
+
+.header-section2{
+    padding-left: 0px;
+    padding-right: 0px;
+    padding-top: 2px;
+    padding-bottom: 2px;
+    border-top : solid black 3px;
+    border-bottom : solid black 3px;
+}
+
+.lable-source-name{
+    text-align: center;
+    font-weight: bold;
+    font-size: 40px;
+}
+
+.col-select-source{
+    align-items: left;
+    text-align: left;
+}
+
+.select-list{
+    border: solid black 1px;
+}
+
+.col-filter-option{
+    align-items: center;
+    text-align: center;
+}
+
+.filter-input{
+    border: solid black 1px;
+    margin-right: 4px;
+}
+
+.filter-button{
+    margin-left: 4px;
+}
+
+.butoon-add-article{
+    align-items: right;
+    text-align: right;
+}
+
+.header-section1, .header-section3{
+    border-left: solid black 3px;
+    border-right: solid black 3px;
+}

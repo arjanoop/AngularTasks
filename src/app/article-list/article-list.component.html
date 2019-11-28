@@ -1,0 +1,28 @@
+<div class="container">
+    <div class="row articles-list-section">
+        <div class="col-lg-3">
+            <div class="article-image">
+                <img class="img-responsive" src="../../assets/image1.jpg" alt="Article Image">
+            </div>
+        </div>
+        <div class="col-lg-9">
+            <div class="atricle-description">
+                <div class="row">
+                    <div class="col-lg-9">
+                        <label class="acticle-headline"> News Headline : {{articleData.title}} </label>
+                    </div>
+                    <div class="col-lg-3">
+                        <label class="article-date">Date : {{articleData.date}}</label>
+                    </div>
+                </div>
+                <div class="article-content">
+                    <p class="article-short-description">{{articleData.content}}</p>
+                    <label class="article-author">Author : {{articleData.category}}</label>
+                    <br>
+                    <br>
+                    <button class="btn btn-primary bg-secondary" (click)="fullArticleSection()">Read More</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

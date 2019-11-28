@@ -1,0 +1,28 @@
+.create-article-button{
+    margin-top:5px;
+    margin-left: 15px;
+    margin-right:15px;
+    align-items: center;
+    text-align: center;
+}
+
+.create-article-input{
+    width:90%;
+}
+
+.create-article-button-container{
+    align-items: center;
+    text-align: center;
+}
+
+.create-article-section{
+    border: solid black 5px;
+    padding-top: 50px;
+    padding-bottom: 50px;
+    padding-left: 50px;
+    padding-right: 50px;
+}
+
+input, textarea{
+    text-align: left !important;
+}

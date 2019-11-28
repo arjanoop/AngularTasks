@@ -1,0 +1,52 @@
+<div class="header container-fluid bg-secondary">
+    <div class="header-section1 headerbar row bg-light">
+        <div class="col-lg-9 col-md-10 col-sm-12">
+            <a routerLink="/" (click)="navbarStatus()">
+                <img src="../../assets/logo.jpg" alt="Logo" height="40" width="40">
+                <label class="news-aggregator-label"> News Aggregator </label>
+            </a>
+        </div>
+        <div class="col-lg-3 col-md-2 col-sm-12 row">
+            <div class="col">
+                <div class="label-user-login">
+                    <label>User Login</label>
+                </div>
+            </div>
+            <div class="col">
+                <div class="butoon-logout">
+                    <button class="btn btn-primary logout-button bg-secondary">Logout</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="header-section2 headerbar">
+        <div class="lable-source-name">
+            <label>{{ headerLabel }}</label>
+        </div>
+    </div>
+    <ng-container *ngIf="show">
+        <div class="header-section3 headerbar row bg-light" >
+        <div class="col-lg-4 col-md-4 col-sm-4 col-select-source">
+            <div class="select-list-option mdb-select md-form colorful-select dropdown-primary">
+                <select class="btn select-list bg-light" id="sel1" (change)="onChangeUpdate($event.target.value)">
+                    <option value="All Sources">All Sources</option>
+                    <option *ngFor="let source of sourcesSet" value="{{source}}">{{source}}</option>
+                </select>
+            </div>
+        </div>
+        <div class="col-lg-4 col-md-4 col-sm-4 col-filter-option">
+            <div class="filter-option">
+                <input type="text" class="btn filter-input bg-light" [(ngModel)]='filterLabel'>
+                <button class="btn btn-primary filter-button bg-secondary" (click)="filterArticles()">Filter</button>
+            </div>
+        </div>
+        <div class="col-lg-4 col-md-4 col-sm-4">
+            <div class="butoon-add-article">
+                <a routerLink ="/create-article">
+                    <button class="btn btn-primary add-article-button bg-secondary" (click) ="updateHeader()">Add Article</button>
+                </a>
+            </div>
+        </div>
+        </div>
+    </ng-container>
+</div>

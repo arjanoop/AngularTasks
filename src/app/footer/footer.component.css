@@ -1,0 +1,15 @@
+.footer{
+    border : solid black 3px;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+}
+
+.footer-content{
+    text-align: right;
+    font-size: 20px;
+    padding-right : 25px;
+    padding-top: 20px;
+    padding-bottom: 10px;
+    font-weight: bold;
+}
