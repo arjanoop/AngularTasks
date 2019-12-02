@@ -1,19 +1,18 @@
-import { Injectable } from '@angular/core';
-import { ArticleFormat } from './format';
+import { Injectable } from "@angular/core";
+import { ArticleFormat } from "./format";
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: "root"
 })
-
 export class ArticleListService {
-  public articleListData : ArticleFormat[];
-  constructor() { }
+  public articleListData: ArticleFormat[];
+  constructor() {}
 
-  setArticleList(refrenceObject){
+  setArticleList(refrenceObject) {
     this.articleListData = refrenceObject;
   }
 
-  getArticleList(){
+  getArticleList() {
     return this.articleListData;
   }
 }
