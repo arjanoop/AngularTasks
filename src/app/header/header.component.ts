@@ -1,6 +1,6 @@
 import { Component, OnInit, Input, NgModule } from "@angular/core";
 import { UpdateDataService } from "../update-data.service";
-import { ArticleFormat } from "../format";
+import { Article } from "../article";
 import { Router } from "@angular/router";
 
 @Component({
@@ -12,9 +12,9 @@ export class HeaderComponent implements OnInit {
   headerLabel = "Welcome to NewsFeeds";
   filterLabel = "";
   sourcesSet = new Set();
-  show: boolean = true;
+  navbarHidingFlag: boolean = true;
 
-  @Input() sources: ArticleFormat[];
+  @Input() sources: Article[];
 
   constructor(
     private updateDataService: UpdateDataService,
@@ -25,11 +25,11 @@ export class HeaderComponent implements OnInit {
     this.updateDataService.updateHeading$.subscribe(value => {
       this.headerLabel = value;
     });
-    this.updateDataService.updateFlag$.subscribe(value => {
+    this.updateDataService.updateHeaderLabelFlag$.subscribe(value => {
       if (value === 1) {
-        this.show = true;
+        this.navbarHidingFlag = true;
       } else {
-        this.show = false;
+        this.navbarHidingFlag = false;
       }
     });
     this.sources.forEach(Element => {
@@ -60,7 +60,7 @@ export class HeaderComponent implements OnInit {
 
   navbarStatus() {
     this.updateDataService.updateHeading("Welcome to NewsFeeds");
-    this.updateDataService.updateFlag(1);
+    this.updateDataService.updateHeaderLabelFlag(1);
   }
 
   updateHeader() {

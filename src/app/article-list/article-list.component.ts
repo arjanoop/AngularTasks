@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from "@angular/core";
-import { ArticleFormat } from "../format";
+import { Article } from "../article";
 import { Router } from "@angular/router";
 import { ArticleDataService } from "../article-data.service";
 import { UpdateDataService } from "../update-data.service";
@@ -10,7 +10,7 @@ import { UpdateDataService } from "../update-data.service";
   styleUrls: ["./article-list.component.css"]
 })
 export class ArticleListComponent implements OnInit {
-  @Input() articleData: ArticleFormat;
+  @Input() articleData: Article;
 
   constructor(
     private route: Router,
@@ -22,8 +22,8 @@ export class ArticleListComponent implements OnInit {
 
   fullArticleSection() {
     this.updateDataService.updateHeading(this.articleData.category);
-    this.updateDataService.updateFlag(0);
-    this.dataService.setObject(this.articleData);
+    this.updateDataService.updateHeaderLabelFlag(0);
+    this.dataService.setArtcileData(this.articleData);
     this.route.navigate(["/article"]);
   }
 }

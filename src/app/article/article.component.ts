@@ -1,6 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { ActivatedRoute, Params } from "@angular/router";
-import { ArticleFormat } from "../format";
+import { Article } from "../article";
 import { ArticleDataService } from "../article-data.service";
 
 @Component({
@@ -9,12 +9,12 @@ import { ArticleDataService } from "../article-data.service";
   styleUrls: ["./article.component.css"]
 })
 export class ArticleComponent implements OnInit {
-  data: ArticleFormat;
+  data: Article;
   constructor(
     private route: ActivatedRoute,
     private dataService: ArticleDataService
   ) {}
   ngOnInit() {
-    this.data = this.dataService.getObject();
+    this.data = this.dataService.getArtcileData();
   }
 }

@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from "@angular/core";
-import { ArticleFormat } from "../format";
+import { Article } from "../article";
 import { UpdateDataService } from "../update-data.service";
 import { AppComponent } from "../app.component";
 
@@ -9,8 +9,8 @@ import { AppComponent } from "../app.component";
   styleUrls: ["./content.component.css"]
 })
 export class ContentComponent implements OnInit {
-  articleListData: ArticleFormat[];
-  filteredArticles: ArticleFormat[];
+  articleListData: Article[];
+  filteredArticles: Article[];
 
   constructor(private updateDataService: UpdateDataService) {}
 

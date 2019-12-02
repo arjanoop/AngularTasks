@@ -1,4 +1,4 @@
-export interface ArticleFormat {
+export interface Article {
   title: string;
   date: string;
   content: string;

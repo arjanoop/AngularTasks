@@ -8,7 +8,7 @@ import { UpdateDataService } from "../update-data.service";
 })
 export class CreateArticleComponent implements OnInit {
   constructor(private channelService: UpdateDataService) {
-    this.channelService.updateFlag(0);
+    this.channelService.updateHeaderLabelFlag(0);
   }
 
   ngOnInit() {}
@@ -54,6 +54,6 @@ export class CreateArticleComponent implements OnInit {
 
   navbarStatus() {
     this.channelService.updateHeading("Welcome to NewsFeeds");
-    this.channelService.updateFlag(1);
+    this.channelService.updateHeaderLabelFlag(1);
   }
 }

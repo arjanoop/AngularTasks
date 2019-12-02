@@ -1,18 +1,18 @@
 import { Injectable } from "@angular/core";
-import { ArticleFormat } from "./format";
+import { Article } from "./article";
 
 @Injectable({
   providedIn: "root"
 })
 export class ArticleDataService {
-  articleData: ArticleFormat = null;
+  articleData: Article = null;
   constructor() {}
 
-  setObject(refrenceObject) {
-    this.articleData = refrenceObject;
+  setArtcileData(article:Article) {
+    this.articleData = article;
   }
 
-  getObject() {
+  getArtcileData():Article {
     return this.articleData;
   }
 }

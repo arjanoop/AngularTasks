@@ -1,6 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import content from "../assets/content.json";
-import { ArticleFormat } from "./format.js";
+import { Article } from "./article.js";
 import { ArticleListService } from "./article-list.service.js";
 
 @Component({
@@ -10,7 +10,7 @@ import { ArticleListService } from "./article-list.service.js";
 })
 export class AppComponent implements OnInit {
   static refrenceObject: ArticleListService;
-  articleListData: ArticleFormat[];
+  articleListData: Article[];
 
   constructor(public newsfeeds: ArticleListService) {
     this.articleListData = content;

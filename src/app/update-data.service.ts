@@ -7,7 +7,7 @@ import { BehaviorSubject } from "rxjs";
 export class UpdateDataService {
   updateSource$ = new BehaviorSubject<string>("All Sources");
   filterArticles$ = new BehaviorSubject<string>("All Sources");
-  updateFlag$ = new BehaviorSubject<number>(1);
+  updateHeaderLabelFlag$ = new BehaviorSubject<number>(1);
   updateHeading$ = new BehaviorSubject<string>("Welcome to NewsFeeds");
 
   updateSource(source: string) {
@@ -15,7 +15,6 @@ export class UpdateDataService {
   }
 
   filterArticles(pattern: string) {
-    console.log("In Service");
     this.filterArticles$.next(pattern);
   }
 
@@ -23,12 +22,12 @@ export class UpdateDataService {
     this.updateHeading$.next(newHeading);
   }
 
-  updateFlag(requestedStatus: number) {
-    this.updateFlag$.next(requestedStatus);
+  updateHeaderLabelFlag(requestedStatus: number) {
+    this.updateHeaderLabelFlag$.next(requestedStatus);
   }
 
-  getFlagStatus() {
-    return this.updateFlag$.value;
+  getHeaderLabelFlagStatus() {
+    return this.updateHeaderLabelFlag$.value;
   }
 
   getCurrentChannel() {

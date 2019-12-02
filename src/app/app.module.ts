@@ -10,7 +10,6 @@ import { CreateArticleComponent } from "./create-article/create-article.componen
 import { ArticleComponent } from "./article/article.component";
 import { ArticleListComponent } from "./article-list/article-list.component";
 import { AppRoutingModule } from "./app-routing.module";
-import { MainComponent } from "./main/main.component";
 import { ArticleListService } from "./article-list.service";
 import { HttpClientModule } from "@angular/common/http";
 
@@ -22,8 +21,7 @@ import { HttpClientModule } from "@angular/common/http";
     FooterComponent,
     CreateArticleComponent,
     ArticleComponent,
-    ArticleListComponent,
-    MainComponent
+    ArticleListComponent
   ],
   imports: [BrowserModule, FormsModule, AppRoutingModule, HttpClientModule],
   providers: [ArticleListService],
