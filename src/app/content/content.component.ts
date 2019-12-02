@@ -1,7 +1,7 @@
 import { Component, OnInit, Input } from "@angular/core";
 import { Article } from "../article";
 import { UpdateDataService } from "../update-data.service";
-import { AppComponent } from "../app.component";
+import { ArticleListDataService } from "../article-list-data.service";
 
 @Component({
   selector: "app-content",
@@ -12,10 +12,13 @@ export class ContentComponent implements OnInit {
   articleListData: Article[];
   filteredArticles: Article[];
 
-  constructor(private updateDataService: UpdateDataService) {}
+  constructor(
+    private updateDataService: UpdateDataService,
+    private articleDataSource: ArticleListDataService
+  ) {}
 
   ngOnInit() {
-    this.articleListData = AppComponent.refrenceObject.getArticleList();
+    this.articleListData = this.articleDataSource.getArticleList();
     this.filteredArticles = this.articleListData.slice();
     this.updateDataService.updateSource$.subscribe(value => {
       if (value === "All Sources") {

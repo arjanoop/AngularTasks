@@ -5,7 +5,7 @@ import { ArticleComponent } from "./article/article.component";
 import { CreateArticleComponent } from "./create-article/create-article.component";
 
 const appRoutes: Routes = [
-  { path:'', redirectTo: 'content', pathMatch: 'full' },
+  { path: "", redirectTo: "content", pathMatch: "full" },
   { path: "content", component: ContentComponent },
   { path: "article", component: ArticleComponent },
   { path: "create-article", component: CreateArticleComponent }

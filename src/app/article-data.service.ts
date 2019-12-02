@@ -8,11 +8,11 @@ export class ArticleDataService {
   articleData: Article = null;
   constructor() {}
 
-  setArtcileData(article:Article) {
+  setArtcileData(article: Article) {
     this.articleData = article;
   }
 
-  getArtcileData():Article {
+  getArtcileData(): Article {
     return this.articleData;
   }
 }

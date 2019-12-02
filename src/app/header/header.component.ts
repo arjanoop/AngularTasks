@@ -2,6 +2,7 @@ import { Component, OnInit, Input, NgModule } from "@angular/core";
 import { UpdateDataService } from "../update-data.service";
 import { Article } from "../article";
 import { Router } from "@angular/router";
+import { ArticleListDataService } from "../article-list-data.service";
 
 @Component({
   selector: "app-header",
@@ -13,13 +14,15 @@ export class HeaderComponent implements OnInit {
   filterLabel = "";
   sourcesSet = new Set();
   navbarHidingFlag: boolean = true;
-
-  @Input() sources: Article[];
+  sources: Article[];
 
   constructor(
     private updateDataService: UpdateDataService,
-    private route: Router
-  ) {}
+    private route: Router,
+    private articleDataSource: ArticleListDataService
+  ) {
+    this.sources = articleDataSource.getArticleList();
+  }
 
   ngOnInit() {
     this.updateDataService.updateHeading$.subscribe(value => {

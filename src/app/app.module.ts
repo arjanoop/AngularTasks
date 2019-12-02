@@ -10,7 +10,7 @@ import { CreateArticleComponent } from "./create-article/create-article.componen
 import { ArticleComponent } from "./article/article.component";
 import { ArticleListComponent } from "./article-list/article-list.component";
 import { AppRoutingModule } from "./app-routing.module";
-import { ArticleListService } from "./article-list.service";
+import { ArticleListDataService } from "./article-list-data.service";
 import { HttpClientModule } from "@angular/common/http";
 
 @NgModule({
@@ -24,7 +24,7 @@ import { HttpClientModule } from "@angular/common/http";
     ArticleListComponent
   ],
   imports: [BrowserModule, FormsModule, AppRoutingModule, HttpClientModule],
-  providers: [ArticleListService],
+  providers: [ArticleListDataService],
   bootstrap: [AppComponent]
 })
 export class AppModule {}
