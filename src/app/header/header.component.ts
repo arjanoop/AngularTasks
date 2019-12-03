@@ -3,6 +3,7 @@ import { UpdateDataService } from "../update-data.service";
 import { Article } from "../article";
 import { Router } from "@angular/router";
 import { ArticleListDataService } from "../article-list-data.service";
+import { element } from "protractor";
 
 @Component({
   selector: "app-header",
@@ -20,14 +21,20 @@ export class HeaderComponent implements OnInit {
     private updateDataService: UpdateDataService,
     private route: Router,
     private articleDataSource: ArticleListDataService
-  ) {
-    this.sources = articleDataSource.getArticleList();
-  }
+  ) {}
 
   ngOnInit() {
+    //Fetching the categoryList and strong it in sourceSet
+    this.articleDataSource.getArticleCategoryList().subscribe(data => {
+      data.forEach(element => {
+        this.sourcesSet.add(element);
+      });
+    });
+    //updating hadding
     this.updateDataService.updateHeading$.subscribe(value => {
       this.headerLabel = value;
     });
+    
     this.updateDataService.updateHeaderLabelFlag$.subscribe(value => {
       if (value === 1) {
         this.navbarHidingFlag = true;
@@ -35,35 +42,28 @@ export class HeaderComponent implements OnInit {
         this.navbarHidingFlag = false;
       }
     });
-    this.sources.forEach(Element => {
-      this.sourcesSet.add(Element.category);
-    });
   }
 
   onChangeUpdate(value: string) {
-    const selectedSource = this.sources.find(
-      source => source.category === value
-    );
-    this.headerLabel = selectedSource
-      ? selectedSource.category
-      : "Welcome to NewsFeeds";
+    this.updateDataService.updateHeading(value);
     this.updateDataService.updateSource(value);
   }
 
   filterArticles() {
     let filterPattern = this.filterLabel;
     this.filterLabel = "";
-    if (filterPattern != "") {
-      this.headerLabel = 'Search Result for "' + filterPattern + '"';
-    } else {
-      this.headerLabel = "Welcome to NewsFeeds";
-    }
     this.updateDataService.filterArticles(filterPattern);
+    if (filterPattern != "") {
+      this.updateDataService.updateHeading('Search Result for "' + filterPattern + '"');
+    } else {
+      this.updateDataService.updateHeading("Welcome to NewsFeeds");
+    }
   }
 
   navbarStatus() {
     this.updateDataService.updateHeading("Welcome to NewsFeeds");
     this.updateDataService.updateHeaderLabelFlag(1);
+    this.updateDataService.updateSource("All Sources");
   }
 
   updateHeader() {

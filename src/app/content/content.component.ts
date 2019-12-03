@@ -2,6 +2,8 @@ import { Component, OnInit, Input } from "@angular/core";
 import { Article } from "../article";
 import { UpdateDataService } from "../update-data.service";
 import { ArticleListDataService } from "../article-list-data.service";
+import { element } from "protractor";
+import { truncate } from 'fs';
 
 @Component({
   selector: "app-content",
@@ -9,8 +11,8 @@ import { ArticleListDataService } from "../article-list-data.service";
   styleUrls: ["./content.component.css"]
 })
 export class ContentComponent implements OnInit {
-  articleListData: Article[];
-  filteredArticles: Article[];
+  articleListData: Article[] = [];
+  filteredArticles: Article[] = [];
 
   constructor(
     private updateDataService: UpdateDataService,
@@ -18,8 +20,14 @@ export class ContentComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    this.articleListData = this.articleDataSource.getArticleList();
+    this.articleDataSource.getArticleList1().subscribe(data => {
+      data.forEach(element => {
+        this.articleListData.push(element);
+      });
+    });
+
     this.filteredArticles = this.articleListData.slice();
+
     this.updateDataService.updateSource$.subscribe(value => {
       if (value === "All Sources") {
         this.articleListData = this.filteredArticles;
@@ -35,10 +43,21 @@ export class ContentComponent implements OnInit {
         return;
       }
       this.articleListData = this.filteredArticles.filter(
-        source =>
-          source.category.includes(pattern) ||
-          source.content.includes(pattern) ||
-          source.title.includes(pattern)
+        source =>{
+          if(source===null){
+            console.log("Chutiyapa");
+            return false;
+          }
+          else if(source.title!==null && source.title.includes(pattern)){
+            return true;
+          }else if(source.content!==null && source.content.includes(pattern)){
+            return true;
+          }else if(source.author!==null && source.author.includes(pattern)){
+            return true;
+          }else{
+            return false;
+          }
+        }
       );
     });
   }
