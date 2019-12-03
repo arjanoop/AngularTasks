@@ -2,8 +2,6 @@ import { Component, OnInit, Input } from "@angular/core";
 import { Article } from "../article";
 import { UpdateDataService } from "../update-data.service";
 import { ArticleListDataService } from "../article-list-data.service";
-import { element } from "protractor";
-import { truncate } from 'fs';
 
 @Component({
   selector: "app-content",
@@ -20,7 +18,7 @@ export class ContentComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    this.articleDataSource.getArticleList1().subscribe(data => {
+    this.articleDataSource.getArticleList().subscribe(data => {
       data.forEach(element => {
         this.articleListData.push(element);
       });
@@ -42,23 +40,23 @@ export class ContentComponent implements OnInit {
         this.articleListData = this.filteredArticles;
         return;
       }
-      this.articleListData = this.filteredArticles.filter(
-        source =>{
-          if(source===null){
-            console.log("Chutiyapa");
-            return false;
-          }
-          else if(source.title!==null && source.title.includes(pattern)){
-            return true;
-          }else if(source.content!==null && source.content.includes(pattern)){
-            return true;
-          }else if(source.author!==null && source.author.includes(pattern)){
-            return true;
-          }else{
-            return false;
-          }
+      this.articleListData = this.filteredArticles.filter(source => {
+        if (source === null) {
+          console.log("Chutiyapa");
+          return false;
+        } else if (source.title !== null && source.title.includes(pattern)) {
+          return true;
+        } else if (
+          source.content !== null &&
+          source.content.includes(pattern)
+        ) {
+          return true;
+        } else if (source.author !== null && source.author.includes(pattern)) {
+          return true;
+        } else {
+          return false;
         }
-      );
+      });
     });
   }
 }

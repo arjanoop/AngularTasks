@@ -1,22 +1,17 @@
-import { Injectable } from '@angular/core';
-import { Article } from './article';
-import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { Injectable } from "@angular/core";
+import { Article } from "./article";
+import { HttpClient } from "@angular/common/http";
+import { Observable } from "rxjs";
 import { map } from "rxjs/operators";
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: "root"
 })
 export class FetchArticlesService {
+  constructor(private httpClient: HttpClient) {}
 
-  constructor(
-    private httpClient:HttpClient
-  ) {
-    
-}
-
-fetchArticleList():Observable<Article[]>{
-  let articles: Article[] = [];
+  fetchArticleList(): Observable<Article[]> {
+    let articles: Article[] = [];
     return this.httpClient
       .get<any>(
         "https://newsapi.org/v2/top-headlines?country=in&apiKey=25517c086fef47eb8e36ec453354200d"
@@ -53,5 +48,5 @@ fetchArticleList():Observable<Article[]>{
           return articles;
         })
       );
-   }
+  }
 }

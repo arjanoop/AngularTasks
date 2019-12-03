@@ -3,7 +3,6 @@ import { UpdateDataService } from "../update-data.service";
 import { Article } from "../article";
 import { Router } from "@angular/router";
 import { ArticleListDataService } from "../article-list-data.service";
-import { element } from "protractor";
 
 @Component({
   selector: "app-header",
@@ -34,7 +33,7 @@ export class HeaderComponent implements OnInit {
     this.updateDataService.updateHeading$.subscribe(value => {
       this.headerLabel = value;
     });
-    
+
     this.updateDataService.updateHeaderLabelFlag$.subscribe(value => {
       if (value === 1) {
         this.navbarHidingFlag = true;
@@ -45,7 +44,11 @@ export class HeaderComponent implements OnInit {
   }
 
   onChangeUpdate(value: string) {
-    this.updateDataService.updateHeading(value);
+    if (value === "All Sources") {
+      this.updateDataService.updateHeading("Welcome to NewsFeeds");
+    } else {
+      this.updateDataService.updateHeading(value);
+    }
     this.updateDataService.updateSource(value);
   }
 
@@ -54,7 +57,9 @@ export class HeaderComponent implements OnInit {
     this.filterLabel = "";
     this.updateDataService.filterArticles(filterPattern);
     if (filterPattern != "") {
-      this.updateDataService.updateHeading('Search Result for "' + filterPattern + '"');
+      this.updateDataService.updateHeading(
+        'Search Result for "' + filterPattern + '"'
+      );
     } else {
       this.updateDataService.updateHeading("Welcome to NewsFeeds");
     }
