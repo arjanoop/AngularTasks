@@ -1,11 +1,18 @@
-import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
+import { NgModule } from "@angular/core";
+import { RouterModule, Routes } from "@angular/router";
+import { ContentComponent } from "./content/content.component";
+import { ArticleComponent } from "./article/article.component";
+import { CreateArticleComponent } from "./create-article/create-article.component";
 
-
-const routes: Routes = [];
+const appRoutes: Routes = [
+  { path: "", redirectTo: "content", pathMatch: "full" },
+  { path: "content", component: ContentComponent },
+  { path: "article", component: ArticleComponent },
+  { path: "create-article", component: CreateArticleComponent }
+];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(appRoutes)],
   exports: [RouterModule]
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}
