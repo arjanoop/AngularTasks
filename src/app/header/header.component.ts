@@ -23,17 +23,14 @@ export class HeaderComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    //Fetching the categoryList and strong it in sourceSet
     this.articleDataSource.getArticleCategoryList().subscribe(data => {
       data.forEach(element => {
         this.sourcesSet.add(element);
       });
     });
-    //updating hadding
     this.updateDataService.updateHeading$.subscribe(value => {
       this.headerLabel = value;
     });
-
     this.updateDataService.updateHeaderLabelFlag$.subscribe(value => {
       if (value === 1) {
         this.navbarHidingFlag = true;
