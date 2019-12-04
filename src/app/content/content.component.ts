@@ -14,11 +14,11 @@ export class ContentComponent implements OnInit {
 
   constructor(
     private updateDataService: UpdateDataService,
-    private articleDataSource: ArticleListDataService
+    private articleDataService: ArticleListDataService
   ) {}
 
   ngOnInit() {
-    this.articleDataSource.getArticleList().subscribe(data => {
+    this.articleDataService.getArticleList().subscribe(data => {
       data.forEach(element => {
         this.articleListData.push(element);
       });
@@ -42,7 +42,6 @@ export class ContentComponent implements OnInit {
       }
       this.articleListData = this.filteredArticles.filter(source => {
         if (source === null) {
-          console.log("Chutiyapa");
           return false;
         } else if (source.title !== null && source.title.includes(pattern)) {
           return true;

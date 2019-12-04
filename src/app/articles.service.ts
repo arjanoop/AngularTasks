@@ -7,7 +7,7 @@ import { map } from "rxjs/operators";
 @Injectable({
   providedIn: "root"
 })
-export class FetchArticlesService {
+export class ArticlesService {
   constructor(private httpClient: HttpClient) {}
 
   fetchArticleList(): Observable<Article[]> {
@@ -29,21 +29,21 @@ export class FetchArticlesService {
             articleData.push(objectUnwarp[2][key]);
           }
           articleData.forEach(element => {
-            try {
-              let temp: Article = {
-                title: element.title,
-                date: element.publishedAt,
-                content: element.content,
-                category: element.source.name
-                  .replace(".com", "")
-                  .replace(".in", ""),
-                author: element.author.replace(".com", "").replace(".in", ""),
-                image: element.urlToImage,
-                value: i
-              };
-              articles.push(temp);
-              i = i + 1;
-            } catch (error) {}
+            let temp: Article = {
+              title: element.title,
+              date: element.publishedAt,
+              content: element.content,
+              category: element.source.name
+                ? element.source.name.replace(".com", "").replace(".in", "")
+                : "",
+              author: element.author
+                ? element.author.replace(".com", "").replace(".in", "")
+                : "",
+              image: element.urlToImage,
+              value: i
+            };
+            articles.push(temp);
+            i = i + 1;
           });
           return articles;
         })

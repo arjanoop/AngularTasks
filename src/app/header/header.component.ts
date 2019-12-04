@@ -18,12 +18,11 @@ export class HeaderComponent implements OnInit {
 
   constructor(
     private updateDataService: UpdateDataService,
-    private route: Router,
-    private articleDataSource: ArticleListDataService
+    private articleDataService: ArticleListDataService
   ) {}
 
   ngOnInit() {
-    this.articleDataSource.getArticleCategoryList().subscribe(data => {
+    this.articleDataService.getArticleCategoryList().subscribe(data => {
       data.forEach(element => {
         this.sourcesSet.add(element);
       });
@@ -55,7 +54,7 @@ export class HeaderComponent implements OnInit {
     this.updateDataService.filterArticles(filterPattern);
     if (filterPattern != "") {
       this.updateDataService.updateHeading(
-        'Search Result for "' + filterPattern + '"'
+        'Search Result for "${filterPattern}"'
       );
     } else {
       this.updateDataService.updateHeading("Welcome to NewsFeeds");
