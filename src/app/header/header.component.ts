@@ -18,13 +18,15 @@ export class HeaderComponent implements OnInit {
 
   constructor(
     private updateDataService: UpdateDataService,
-    private route: Router,
-    private articleDataSource: ArticleListDataService
-  ) {
-    this.sources = articleDataSource.getArticleList();
-  }
+    private articleDataService: ArticleListDataService
+  ) {}
 
   ngOnInit() {
+    this.articleDataService.getArticleCategoryList().subscribe(data => {
+      data.forEach(element => {
+        this.sourcesSet.add(element);
+      });
+    });
     this.updateDataService.updateHeading$.subscribe(value => {
       this.headerLabel = value;
     });
@@ -35,35 +37,34 @@ export class HeaderComponent implements OnInit {
         this.navbarHidingFlag = false;
       }
     });
-    this.sources.forEach(Element => {
-      this.sourcesSet.add(Element.category);
-    });
   }
 
   onChangeUpdate(value: string) {
-    const selectedSource = this.sources.find(
-      source => source.category === value
-    );
-    this.headerLabel = selectedSource
-      ? selectedSource.category
-      : "Welcome to NewsFeeds";
+    if (value === "All Sources") {
+      this.updateDataService.updateHeading("Welcome to NewsFeeds");
+    } else {
+      this.updateDataService.updateHeading(value);
+    }
     this.updateDataService.updateSource(value);
   }
 
   filterArticles() {
     let filterPattern = this.filterLabel;
     this.filterLabel = "";
-    if (filterPattern != "") {
-      this.headerLabel = 'Search Result for "' + filterPattern + '"';
-    } else {
-      this.headerLabel = "Welcome to NewsFeeds";
-    }
     this.updateDataService.filterArticles(filterPattern);
+    if (filterPattern != "") {
+      this.updateDataService.updateHeading(
+        'Search Result for "${filterPattern}"'
+      );
+    } else {
+      this.updateDataService.updateHeading("Welcome to NewsFeeds");
+    }
   }
 
   navbarStatus() {
     this.updateDataService.updateHeading("Welcome to NewsFeeds");
     this.updateDataService.updateHeaderLabelFlag(1);
+    this.updateDataService.updateSource("All Sources");
   }
 
   updateHeader() {

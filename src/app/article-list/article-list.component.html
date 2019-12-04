@@ -4,8 +4,10 @@
       <div class="article-image">
         <img
           class="img-responsive"
-          src="../../assets/image1.jpg"
+          src="{{ articleData.image }}"
           alt="Article Image"
+          width="250"
+          height="250"
         />
       </div>
     </div>
@@ -18,13 +20,15 @@
             </label>
           </div>
           <div class="col-lg-3">
-            <label class="article-date">Date : {{ articleData.date }}</label>
+            <label class="article-date"
+              >Date : {{ articleData.date | date }}</label
+            >
           </div>
         </div>
         <div class="article-content">
           <p class="article-short-description">{{ articleData.content }}</p>
           <label class="article-author"
-            >Author : {{ articleData.category }}</label
+            >Author : {{ articleData.author }}</label
           >
           <br />
           <br />

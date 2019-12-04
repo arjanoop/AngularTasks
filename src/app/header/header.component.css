@@ -12,7 +12,7 @@ input {
   position: fixed;
   left: 0;
   top: 0;
-  border: solid black 3px;
+  border: 3px solid black;
   z-index: 1;
 }
 .headerbar {
@@ -45,8 +45,8 @@ input {
   padding-right: 0px;
   padding-top: 2px;
   padding-bottom: 2px;
-  border-top: solid black 3px;
-  border-bottom: solid black 3px;
+  border-top: 3px solid black;
+  border-bottom: 3px solid black;
 }
 
 .lable-source-name {
@@ -61,7 +61,7 @@ input {
 }
 
 .select-list {
-  border: solid black 1px;
+  border: 1px solid black;
 }
 
 .col-filter-option {
@@ -70,7 +70,7 @@ input {
 }
 
 .filter-input {
-  border: solid black 1px;
+  border: 1px solid black;
   margin-right: 4px;
 }
 
@@ -85,6 +85,6 @@ input {
 
 .header-section1,
 .header-section3 {
-  border-left: solid black 3px;
-  border-right: solid black 3px;
+  border-left: 3px solid black;
+  border-right: 3px solid black;
 }
