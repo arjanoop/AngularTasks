@@ -1,6 +1,6 @@
 import { BrowserModule } from "@angular/platform-browser";
 import { NgModule, Component } from "@angular/core";
-import { FormsModule } from "@angular/forms";
+import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 
 import { AppComponent } from "./app.component";
 import { HeaderComponent } from "./header/header.component";
@@ -12,6 +12,7 @@ import { ArticleListComponent } from "./article-list/article-list.component";
 import { AppRoutingModule } from "./app-routing.module";
 import { ArticleListDataService } from "./article-list-data.service";
 import { HttpClientModule } from "@angular/common/http";
+import { LoginComponent } from "./login/login.component";
 
 @NgModule({
   declarations: [
@@ -21,9 +22,16 @@ import { HttpClientModule } from "@angular/common/http";
     FooterComponent,
     CreateArticleComponent,
     ArticleComponent,
-    ArticleListComponent
+    ArticleListComponent,
+    LoginComponent
   ],
-  imports: [BrowserModule, FormsModule, AppRoutingModule, HttpClientModule],
+  imports: [
+    BrowserModule,
+    FormsModule,
+    AppRoutingModule,
+    HttpClientModule,
+    ReactiveFormsModule
+  ],
   providers: [ArticleListDataService],
   bootstrap: [AppComponent]
 })

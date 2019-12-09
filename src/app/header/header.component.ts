@@ -10,8 +10,11 @@ import { ArticleListDataService } from "../article-list-data.service";
   styleUrls: ["./header.component.css"]
 })
 export class HeaderComponent implements OnInit {
-  headerLabel = "Welcome to NewsFeeds";
-  filterLabel = "";
+  adminLoginFlag:boolean = false;
+  loginFlag:boolean= false;
+  userNameLabel:string = "";
+  headerLabel:string = "Welcome to NewsFeeds";
+  filterLabel:string = "";
   sourcesSet = new Set();
   navbarHidingFlag: boolean = true;
   sources: Article[];

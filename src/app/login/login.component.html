@@ -1,0 +1,36 @@
+<div class="container">
+  <div class="container">
+    <form [formGroup]="loginForm">
+      <fieldset>
+        <legend class="login-credentials-label">
+          &nbsp;Login Credentials&nbsp;
+        </legend>
+        <div class="form-group">
+          <label>User Name</label>
+          <input type="text" class="form-control" formControlName="userName"/>
+        </div>
+        <br />
+        <div class="form-group">
+          <label>Password</label>
+          <input type="password" class="form-control" formControlName="password" />
+        </div>
+        <br />
+        <div class="form-group form-button">
+          <button
+            class="btn btn-primary logout-button bg-secondary button-login"
+            (click)="formActionlogin()"
+          >
+            Login
+          </button>
+          <button
+            class="btn btn-primary logout-button bg-secondary"
+            (click)="formActionclear()"
+          >
+            Clear
+          </button>
+        </div>
+      </fieldset>
+    </form>
+    <!-- <pre>{{loginForm.value | json}}</pre> -->
+  </div>
+</div>
