@@ -13,6 +13,7 @@ import { AppRoutingModule } from "./app-routing.module";
 import { ArticleListDataService } from "./article-list-data.service";
 import { HttpClientModule } from "@angular/common/http";
 import { LoginComponent } from "./login/login.component";
+import { ArticleCommentComponent } from './article-comment/article-comment.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { LoginComponent } from "./login/login.component";
     CreateArticleComponent,
     ArticleComponent,
     ArticleListComponent,
-    LoginComponent
+    LoginComponent,
+    ArticleCommentComponent
   ],
   imports: [
     BrowserModule,

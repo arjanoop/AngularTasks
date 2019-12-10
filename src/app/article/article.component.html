@@ -1,34 +1,42 @@
 <div class="container">
-  <div class="row article-read-section">
-    <div class="col-lg-3">
-      <div class="article-imag">
-        <img
-          src="{{ data.image }}"
-          alt="Article Image"
-          width="250"
-          height="250"
-        />
-      </div>
-    </div>
-    <div class="col-lg-9">
-      <div class="article-content">
-        <div class="heading">
-          <label><b>News Headline</b> : {{ data.title }} </label>
-        </div>
-        <div class="content">
-          <p>
-            <b>Content</b> :
-            <br />
-            {{ data.content }}
-          </p>
-        </div>
-        <div class="date">
-          <label><b>Date</b> : {{ data.date | date }} </label>
-        </div>
-        <div class="author">
-          <label><b>Author</b> : {{ data.author }} </label>
+  <div class="article-read-section">
+    <div class="row">
+      <div class="col-lg-3">
+        <div class="article-imag">
+          <img
+            src="{{ data.image }}"
+            alt="Article Image"
+            width="250"
+            height="250"
+          />
         </div>
       </div>
+      <div class="col-lg-9">
+        <div class="article-content">
+          <div class="heading">
+            <label><b>News Headline</b> : {{ data.title }} </label>
+          </div>
+          <div class="content">
+            <p>
+              <b>Content</b> :
+              <br />
+              {{ data.content }}
+            </p>
+          </div>
+          <div class="date">
+            <label><b>Date</b> : {{ data.date | date }} </label>
+          </div>
+          <div class="author">
+            <label><b>Author</b> : {{ data.author }} </label>
+          </div>
+        </div>
+      </div>
     </div>
+    <hr>
+    <div class="row">
+      <app-article-comment></app-article-comment>
+
+    </div>
+
   </div>
 </div>
