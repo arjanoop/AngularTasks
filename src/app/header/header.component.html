@@ -7,10 +7,9 @@
       </a>
     </div>
     <div class="col-lg-3 col-md-2 col-sm-12 row">
-     
       <div class="col">
         <div class="label-user-login">
-          <label>{{userNameLabel}}</label>
+          <label>{{ userNameLabel }}</label>
         </div>
       </div>
       <div class="col">
@@ -20,19 +19,17 @@
               Admin Menu
             </button>
           </div>
-      </ng-container>
-      </div>
-      <div class="col">
-          <ng-container *ngIf="loginFlag">
-        <div class="butoon-logout">
-          <button class="btn btn-primary logout-button bg-secondary">
-            Logout
-          </button>
-        </div>
         </ng-container>
       </div>
-
-
+      <div class="col">
+        <ng-container *ngIf="loginFlag">
+          <div class="butoon-logout">
+            <button class="btn btn-primary logout-button bg-secondary" (click)="logout()">
+              Logout
+            </button>
+          </div>
+        </ng-container>
+      </div>
     </div>
   </div>
   <div class="header-section2 headerbar">
@@ -40,7 +37,7 @@
       <label>{{ headerLabel }}</label>
     </div>
   </div>
-  <ng-container *ngIf="navbarHidingFlag">
+  <ng-container *ngIf="navbarHidingFlag && userLoginStatus">
     <div class="header-section3 headerbar row bg-light">
       <div class="col-lg-4 col-md-4 col-sm-4 col-select-source">
         <div
@@ -75,14 +72,16 @@
       </div>
       <div class="col-lg-4 col-md-4 col-sm-4">
         <div class="butoon-add-article">
-          <a routerLink="/create-article">
-            <button
-              class="btn btn-primary add-article-button bg-secondary"
-              (click)="updateHeader()"
-            >
-              Add Article
-            </button>
-          </a>
+          <ng-container *ngIf="adminLoginFlag">
+            <a routerLink="/create-article">
+              <button
+                class="btn btn-primary add-article-button bg-secondary"
+                (click)="updateHeader()"
+              >
+                Add Article
+              </button>
+            </a>
+          </ng-container>
         </div>
       </div>
     </div>

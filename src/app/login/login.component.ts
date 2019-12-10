@@ -2,7 +2,7 @@ import { Component, OnInit } from "@angular/core";
 import { UpdateDataService } from "../update-data.service";
 import { Router } from '@angular/router';
 import { FormGroup, FormControl } from '@angular/forms';
-import { ReactiveFormsModule } from '@angular/forms';
+import { UserService } from '../user.service';
 
 @Component({
   selector: "app-login",
@@ -14,8 +14,10 @@ export class LoginComponent implements OnInit {
 
   constructor(
     private channelService: UpdateDataService,
-    private route: Router
+    private route: Router,
+    private user:UserService
   ) {
+    this.channelService.updateUser("","");
     this.channelService.updateHeaderLabelFlag(0);
   }
 
@@ -29,7 +31,8 @@ export class LoginComponent implements OnInit {
 
   formActionlogin() {
     if (this.loginForm.valid) {
-      if(this.loginForm.value.userName === "admin" && this.loginForm.value.password === "admin"){
+      if(this.user.checkUser(this.loginForm.value.userName,this.loginForm.value.password)){
+        this.channelService.updateUser(this.user.getUserRole(),this.user.getUserName());
         this.channelService.updateHeaderLabelFlag(1);
         this.route.navigate(["/content"]);
       }
@@ -38,7 +41,6 @@ export class LoginComponent implements OnInit {
   }
 
   formActionclear() {
-    this.channelService.updateHeaderLabelFlag(0);
-    this.route.navigate(["/login"]);
+    this.loginForm.reset();
   }
 }
