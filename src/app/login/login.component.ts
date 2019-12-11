@@ -1,7 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { UpdateDataService } from "../update-data.service";
 import { Router } from '@angular/router';
-import { FormGroup, FormControl } from '@angular/forms';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { UserService } from '../user.service';
 
 @Component({
@@ -17,16 +17,20 @@ export class LoginComponent implements OnInit {
     private route: Router,
     private user:UserService
   ) {
-    this.channelService.updateUser("","");
     this.channelService.updateHeaderLabelFlag(0);
   }
 
   ngOnInit() {
+    if(this.channelService.getUserRole()!==""){
+      this.route.navigate(["/content"]);
+      this.channelService.updateHeaderLabelFlag(1);
+    }
     this.loginForm = new FormGroup({
-      userName:new FormControl(),
-      password:new FormControl()
+      userName:new FormControl("",Validators.required),
+      password:new FormControl("",[
+        Validators.required
+      ])
     });
-    console.log()
   }
 
   formActionlogin() {

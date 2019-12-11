@@ -28,6 +28,7 @@ export class HeaderComponent implements OnInit {
   ) {}
 
   ngOnInit() {
+    console.log("Header");
     this.articleDataService.getArticleCategoryList().subscribe(data => {
       data.forEach(element => {
         this.sourcesSet.add(element);

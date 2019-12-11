@@ -18,6 +18,7 @@ export class ContentComponent implements OnInit {
   ) {}
 
   ngOnInit() {
+    console.log("content")
     this.articleDataService.getArticleList().subscribe(data => {
       data.forEach(element => {
         this.articleListData.push(element);

@@ -34,6 +34,10 @@ export class UpdateDataService {
     this.updateUserName$.next(userName);
   }
 
+  getUserRole(){
+    return this.updateUserRole$.value;
+  }
+
   updateCoummentCount(value:number){
     this.updateCommentCount$.next(value);
   }

@@ -10,6 +10,7 @@ export class ArticleCommentComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+    console.log("ArtcileComment");
   }
 
 }

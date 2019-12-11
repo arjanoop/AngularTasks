@@ -31,6 +31,8 @@ export class ArticleComponent implements OnInit {
   }
 
   ngOnInit() {
+    console.log("Article");
+    console.log(this.updateDataService.getUserRole());
     this.data = this.dataService.getArtcileData();
   }
 

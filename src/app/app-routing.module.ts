@@ -4,14 +4,36 @@ import { ContentComponent } from "./content/content.component";
 import { ArticleComponent } from "./article/article.component";
 import { CreateArticleComponent } from "./create-article/create-article.component";
 import { LoginComponent } from "./login/login.component";
+import { AuthenticUserGuardService } from "./authentic-user-guard.service";
 
 const appRoutes: Routes = [
-  { path: "", redirectTo: "login", pathMatch: "full" },
+  {
+    path: "",
+    redirectTo: "content",
+    canActivate: [AuthenticUserGuardService],
+    pathMatch: "full"
+  },
   { path: "login", component: LoginComponent },
-  { path: "content", component: ContentComponent },
-  { path: "article", component: ArticleComponent },
-  { path: "create-article", component: CreateArticleComponent },
-  { path: "**", component: LoginComponent }
+  {
+    path: "content",
+    canActivate: [AuthenticUserGuardService],
+    component: ContentComponent
+  },
+  {
+    path: "article",
+    canActivate: [AuthenticUserGuardService],
+    component: ArticleComponent
+  },
+  {
+    path: "create-article",
+    canActivate: [AuthenticUserGuardService],
+    component: CreateArticleComponent
+  },
+  {
+    path: "**",
+    canActivate: [AuthenticUserGuardService],
+    component: LoginComponent
+  }
 ];
 
 @NgModule({
