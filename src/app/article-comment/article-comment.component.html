@@ -1,16 +1,24 @@
 <div class="container">
-    <div class="row comment">
-        <div class="col-lg-3 image">
-                <img
-                src="../../assets/commentLogo.jpg"
-                alt="Article Image"
-                width="50"
-                height="50"
-              />
+  <div class="row comment">
+    <div class="col-lg-2"></div>
+    <div class="col-lg-8 ">
+      <div class="row">
+        <div class="col-lg-1 image">
+          <img
+            src="../../assets/commentLogo1.jpg"
+            alt="Article Image"
+            width="50"
+            height="50"
+          />
         </div>
         <div class="col-lg-1"></div>
-        <div class="col-lg-7 commentlabel">
-            <p>My Comment</p>
+        <div class="col-lg-10 commentlabel">
+          <ng-content></ng-content>
         </div>
+      </div>
+      <hr />
     </div>
+    <div class="col-lg-1"></div>
+    <hr />
+  </div>
 </div>

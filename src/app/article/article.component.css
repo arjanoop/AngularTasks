@@ -13,3 +13,11 @@ p {
 img {
   padding-right: 50px;
 }
+
+.readComment{
+  text-align: center !important;
+}
+
+.readCommentLabel:hover {
+  color:navy;
+}

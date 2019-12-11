@@ -32,11 +32,26 @@
         </div>
       </div>
     </div>
-    <hr>
-    <div class="row">
-      <app-article-comment></app-article-comment>
-
+    <br />
+    <div class="readComment">
+      <a>
+        <label class="readCommentLabel" (click)="displayCommentSection()">
+          <b>
+            {{ readORhide }} Comments
+            <ng-container *ngIf="!displayCommentSectionFlag"
+              >[{{ commentCount }}]
+            </ng-container>
+          </b>
+        </label>
+      </a>
     </div>
-
+    <hr />
+    <div class="row">
+      <ng-container *ngIf="displayCommentSectionFlag">
+        <app-article-comment *ngFor="let comment of comments">
+          <p>{{ comment }}</p>
+        </app-article-comment>
+      </ng-container>
+    </div>
   </div>
 </div>

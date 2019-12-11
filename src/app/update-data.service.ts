@@ -11,6 +11,7 @@ export class UpdateDataService {
   updateHeading$ = new BehaviorSubject<string>("Welcome to NewsFeeds");
   updateUserRole$ = new BehaviorSubject<string>("");
   updateUserName$ = new BehaviorSubject<string>("");
+  updateCommentCount$ = new BehaviorSubject<number>(0);
 
   updateSource(source: string) {
     this.updateSource$.next(source);
@@ -31,6 +32,10 @@ export class UpdateDataService {
   updateUser(userRole:string,userName:string){
     this.updateUserRole$.next(userRole);
     this.updateUserName$.next(userName);
+  }
+
+  updateCoummentCount(value:number){
+    this.updateCommentCount$.next(value);
   }
 
   getHeaderLabelFlagStatus() {
