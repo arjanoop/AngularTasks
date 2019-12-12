@@ -16,19 +16,19 @@ export class UserDetails {
     this.name = name;
   }
 
-  authenticateUser(uName:string,pass:string):boolean{
-      if(this.userName === uName && this.password === pass ){
-          return true;
-      }else{
-          return false;
-      }
+  authenticateUser(uName: string, pswrd: string): boolean {
+    if (this.userName === uName && this.password === pswrd) {
+      return true;
+    } else {
+      return false;
+    }
   }
 
-  getUserRole():string{
-      return this.userRole;
+  getUserRole(): string {
+    return this.userRole;
   }
 
-  getName():string{
-      return this.name;
+  getName(): string {
+    return this.name;
   }
 }

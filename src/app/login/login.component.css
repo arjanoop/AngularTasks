@@ -25,3 +25,7 @@ button {
 .button-login {
   margin-right: 50px;
 }
+
+.container {
+  height: 60vh;
+}

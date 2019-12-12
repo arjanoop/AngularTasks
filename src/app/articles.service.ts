@@ -34,10 +34,16 @@ export class ArticlesService {
               date: element.publishedAt,
               content: element.content,
               category: element.source.name
-                ? element.source.name.replace(".com", "").replace(".in", "")
+                ? element.source.name
+                    .replace(".com", "")
+                    .replace(".in", "")
+                    .replace(".net", "")
                 : "",
               author: element.author
-                ? element.author.replace(".com", "").replace(".in", "")
+                ? element.author
+                    .replace(".com", "")
+                    .replace(".in", "")
+                    .replace(".net", "")
                 : "",
               image: element.urlToImage,
               value: i

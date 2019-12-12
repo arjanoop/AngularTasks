@@ -13,7 +13,8 @@ import { AppRoutingModule } from "./app-routing.module";
 import { ArticleListDataService } from "./article-list-data.service";
 import { HttpClientModule } from "@angular/common/http";
 import { LoginComponent } from "./login/login.component";
-import { ArticleCommentComponent } from './article-comment/article-comment.component';
+import { ArticleCommentComponent } from "./article-comment/article-comment.component";
+import { AdminDashboardComponent } from "./admin-dashboard/admin-dashboard.component";
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { ArticleCommentComponent } from './article-comment/article-comment.compo
     ArticleComponent,
     ArticleListComponent,
     LoginComponent,
-    ArticleCommentComponent
+    ArticleCommentComponent,
+    AdminDashboardComponent
   ],
   imports: [
     BrowserModule,

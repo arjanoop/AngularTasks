@@ -15,8 +15,11 @@
       <div class="col">
         <ng-container *ngIf="adminLoginFlag">
           <div class="butoon-admin-menu">
-            <button class="btn btn-primary logout-button bg-secondary">
-              Admin Menu
+            <button
+              class="btn btn-primary logout-button bg-secondary"
+              (click)="gotoDashboardPage()"
+            >
+              Dashboard
             </button>
           </div>
         </ng-container>
@@ -24,7 +27,10 @@
       <div class="col">
         <ng-container *ngIf="loginFlag">
           <div class="butoon-logout">
-            <button class="btn btn-primary logout-button bg-secondary" (click)="logout()">
+            <button
+              class="btn btn-primary logout-button bg-secondary"
+              (click)="logout()"
+            >
               Logout
             </button>
           </div>

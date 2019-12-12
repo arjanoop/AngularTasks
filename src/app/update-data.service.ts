@@ -29,16 +29,16 @@ export class UpdateDataService {
     this.updateHeaderLabelFlag$.next(requestedStatus);
   }
 
-  updateUser(userRole:string,userName:string){
+  updateUser(userRole: string, userName: string) {
     this.updateUserRole$.next(userRole);
     this.updateUserName$.next(userName);
   }
 
-  getUserRole(){
+  getUserRole() {
     return this.updateUserRole$.value;
   }
 
-  updateCoummentCount(value:number){
+  updateCoummentCount(value: number) {
     this.updateCommentCount$.next(value);
   }
 

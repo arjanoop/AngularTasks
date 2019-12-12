@@ -11,8 +11,8 @@ import { UpdateDataService } from "../update-data.service";
   styleUrls: ["./article.component.css"]
 })
 export class ArticleComponent implements OnInit {
-  commentCount:number=0;
-  readORhide = 'Read';
+  commentCount: number = 0;
+  readORhide = "Read";
   data: Article;
   displayCommentSectionFlag: boolean = false;
   comments: string[] = [];
@@ -31,17 +31,12 @@ export class ArticleComponent implements OnInit {
   }
 
   ngOnInit() {
-    console.log("Article");
-    console.log(this.updateDataService.getUserRole());
     this.data = this.dataService.getArtcileData();
   }
 
   displayCommentSection() {
     this.displayCommentSectionFlag = !this.displayCommentSectionFlag;
-    if (this.displayCommentSectionFlag === false) {
-      this.readORhide = `Read`;
-    } else {
-      this.readORhide = `Hide`;
-    }
+    this.readORhide =
+      this.displayCommentSectionFlag === false ? `Read` : `Hide`;
   }
 }

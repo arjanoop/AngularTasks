@@ -1,6 +1,5 @@
 import { Injectable } from "@angular/core";
 import {
-  CanActivate,
   Router,
   ActivatedRouteSnapshot,
   RouterStateSnapshot
@@ -10,7 +9,7 @@ import { UpdateDataService } from "./update-data.service";
 @Injectable({
   providedIn: "root"
 })
-export class AuthenticUserGuardService implements CanActivate {
+export class AuthenticateAdminGuardService {
   constructor(
     private route: Router,
     private updateDataService: UpdateDataService
@@ -20,7 +19,7 @@ export class AuthenticUserGuardService implements CanActivate {
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot
   ): boolean {
-    if (this.updateDataService.getUserRole() !== "") {
+    if (this.updateDataService.getUserRole() === "Admin") {
       return true;
     } else {
       this.route.navigate(["/login"]);

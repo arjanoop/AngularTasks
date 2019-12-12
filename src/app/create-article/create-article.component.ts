@@ -11,9 +11,7 @@ export class CreateArticleComponent implements OnInit {
     this.channelService.updateHeaderLabelFlag(0);
   }
 
-  ngOnInit() {
-    console.log("CreateArticle");
-  }
+  ngOnInit() {}
 
   saveArticle(
     heading: String,

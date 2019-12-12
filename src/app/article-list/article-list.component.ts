@@ -18,9 +18,7 @@ export class ArticleListComponent implements OnInit {
     private updateDataService: UpdateDataService
   ) {}
 
-  ngOnInit() {
-    console.log("article-list");
-  }
+  ngOnInit() {}
 
   fullArticleSection() {
     this.updateDataService.updateHeading(this.articleData.category);

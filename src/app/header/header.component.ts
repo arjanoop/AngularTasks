@@ -2,7 +2,7 @@ import { Component, OnInit, Input, NgModule } from "@angular/core";
 import { UpdateDataService } from "../update-data.service";
 import { Article } from "../article";
 import { ArticleListDataService } from "../article-list-data.service";
-import { Router } from '@angular/router';
+import { Router } from "@angular/router";
 
 @Component({
   selector: "app-header",
@@ -10,7 +10,7 @@ import { Router } from '@angular/router';
   styleUrls: ["./header.component.css"]
 })
 export class HeaderComponent implements OnInit {
-  userLoginStatus:boolean=false;
+  userLoginStatus: boolean = false;
   userRole: string = "";
   adminLoginFlag: boolean = false;
   loginFlag: boolean = false;
@@ -28,7 +28,6 @@ export class HeaderComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    console.log("Header");
     this.articleDataService.getArticleCategoryList().subscribe(data => {
       data.forEach(element => {
         this.sourcesSet.add(element);
@@ -46,13 +45,13 @@ export class HeaderComponent implements OnInit {
     });
     this.updateDataService.updateUserRole$.subscribe(role => {
       if (role !== "") {
-        this.userLoginStatus=true;
+        this.userLoginStatus = true;
         this.loginFlag = true;
         if (role === "Admin") {
           this.adminLoginFlag = true;
         }
       } else {
-        this.userLoginStatus=false;
+        this.userLoginStatus = false;
         this.adminLoginFlag = false;
         this.loginFlag = false;
       }
@@ -77,7 +76,7 @@ export class HeaderComponent implements OnInit {
     this.updateDataService.filterArticles(filterPattern);
     if (filterPattern != "") {
       this.updateDataService.updateHeading(
-        'Search Result for "${filterPattern}"'
+        `Search Result for ${filterPattern}`
       );
     } else {
       this.updateDataService.updateHeading("Welcome to NewsFeeds");
@@ -85,12 +84,16 @@ export class HeaderComponent implements OnInit {
   }
 
   navbarStatus() {
-    if(this.userLoginStatus===true){
+    if (this.updateDataService.getUserRole() === "Admin") {
+      this.updateDataService.updateHeading("Welcome to NewsFeeds");
+      this.updateDataService.updateHeaderLabelFlag(0);
+      this.route.navigate(["/dashboard"]);
+    } else if (this.userLoginStatus === true) {
       this.updateDataService.updateHeading("Welcome to NewsFeeds");
       this.updateDataService.updateHeaderLabelFlag(1);
       this.updateDataService.updateSource("All Sources");
       this.route.navigate(["/content"]);
-    }else{
+    } else {
       this.updateDataService.updateHeaderLabelFlag(0);
       this.route.navigate(["/login"]);
     }
@@ -103,5 +106,9 @@ export class HeaderComponent implements OnInit {
   logout() {
     this.updateDataService.updateUser("", "");
     this.route.navigate(["/login"]);
+  }
+
+  gotoDashboardPage() {
+    this.route.navigate(["/dashboard"]);
   }
 }
