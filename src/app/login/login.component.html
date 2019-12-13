@@ -1,0 +1,49 @@
+<div class="container">
+  <div class="container">
+    <form (ngSubmit)="formActionlogin(loginForm)" #loginForm="ngForm">
+      <fieldset>
+        <legend class="login-credentials-label">
+          <label class="login-label">&nbsp;Login Credentials&nbsp;</label>
+        </legend>
+        <div class="form-group">
+          <label>User Name</label>
+          <input
+            type="text"
+            class="form-control"
+            name="userName"
+            [(ngModel)]="userName"
+            required
+          />
+        </div>
+        <br />
+        <div class="form-group">
+          <label>Password</label>
+          <input
+            type="password"
+            class="form-control"
+            name="password"
+            [(ngModel)]="password"
+            required
+            minlength="2"
+          />
+        </div>
+        <br />
+        <div class="form-group form-button">
+          <button
+            type="submit"
+            class="btn btn-primary logout-button bg-secondary button-login"
+            [disabled]="loginForm.invalid"
+          >
+            Login
+          </button>
+          <button
+            class="btn btn-primary logout-button bg-secondary"
+            (click)="formActionclear(loginForm)"
+          >
+            Clear
+          </button>
+        </div>
+      </fieldset>
+    </form>
+  </div>
+</div>

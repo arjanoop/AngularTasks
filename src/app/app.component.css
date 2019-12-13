@@ -10,10 +10,16 @@
   }
 }
 
-@media screen and (max-width: 950px) {
+@media screen and (max-width: 700px) {
   .container {
     padding-top: 40%;
     padding-bottom: 15%;
     width: 50px;
   }
+}
+
+.main-container {
+  background: white url(//www.html.am/images/backgrounds/background-image-2.gif);
+  background-repeat: repeat;
+  height: 100%;
 }

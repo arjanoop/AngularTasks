@@ -5,10 +5,13 @@
   padding-left: 5px;
   padding-bottom: 10px;
   margin-bottom: 50px;
+  background: white;
 }
+
 p {
   text-align: justify;
 }
+
 .btn {
   text-align: left;
 }

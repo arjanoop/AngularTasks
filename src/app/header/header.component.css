@@ -31,8 +31,9 @@ input {
   margin-top: 5px;
 }
 
-.button-logout {
-  align-items: center;
+.button-logout,
+.butoon-admin-menu {
+  align-items: right;
 }
 .btn {
   background-color: #00f1d4;

@@ -1,0 +1,36 @@
+.container {
+  padding-top: 15%;
+  padding-bottom: 15%;
+  border: 5px solid black;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  padding-left: 20px;
+  padding-right: 20px;
+  margin-left: 20px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  margin-right: 20px;
+}
+
+.main-container {
+  background: url(http://getwallpapers.com/wallpaper/full/c/f/6/350795.jpg);
+  background-attachment: fixed;
+  background-size: cover;
+  background-position: center;
+}
+
+.item {
+  text-align: center;
+  font-size: 40px;
+  color: white;
+  padding-top: 15%;
+  padding-bottom: 15%;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  padding-left: 20px;
+  padding-right: 20px;
+  margin-left: 20px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  margin-right: 20px;
+}

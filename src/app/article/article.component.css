@@ -1,9 +1,10 @@
 .article-read-section {
   border: 5px solid black;
   padding-top: 50px;
-  padding-bottom: 50px;
+  padding-bottom: 10px;
   padding-left: 50px;
   padding-right: 50px;
+  background: white;
 }
 
 p {
@@ -12,4 +13,20 @@ p {
 
 img {
   padding-right: 50px;
+}
+
+.readComment {
+  text-align: center !important;
+}
+
+.readCommentLabel:hover {
+  color: navy;
+}
+
+.container {
+  height: 60vh;
+}
+
+.comments-showing {
+  height: 100% !important;
 }

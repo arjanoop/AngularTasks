@@ -1,34 +1,57 @@
 <div class="container">
-  <div class="row article-read-section">
-    <div class="col-lg-3">
-      <div class="article-imag">
-        <img
-          src="{{ data.image }}"
-          alt="Article Image"
-          width="250"
-          height="250"
-        />
+  <div class="article-read-section">
+    <div class="row">
+      <div class="col-lg-3">
+        <div class="article-imag">
+          <img
+            src="{{ data.image }}"
+            alt="Article Image"
+            width="250"
+            height="250"
+          />
+        </div>
+      </div>
+      <div class="col-lg-9">
+        <div class="article-content">
+          <div class="heading">
+            <label><b>News Headline</b> : {{ data.title }} </label>
+          </div>
+          <div class="content">
+            <p>
+              <b>Content</b> :
+              <br />
+              {{ data.content }}
+            </p>
+          </div>
+          <div class="date">
+            <label><b>Date</b> : {{ data.date | date }} </label>
+          </div>
+          <div class="author">
+            <label><b>Author</b> : {{ data.author }} </label>
+          </div>
+        </div>
       </div>
     </div>
-    <div class="col-lg-9">
-      <div class="article-content">
-        <div class="heading">
-          <label><b>News Headline</b> : {{ data.title }} </label>
-        </div>
-        <div class="content">
-          <p>
-            <b>Content</b> :
-            <br />
-            {{ data.content }}
-          </p>
-        </div>
-        <div class="date">
-          <label><b>Date</b> : {{ data.date | date }} </label>
-        </div>
-        <div class="author">
-          <label><b>Author</b> : {{ data.author }} </label>
-        </div>
-      </div>
+    <br />
+    <div class="readComment">
+      <a>
+        <label class="readCommentLabel" (click)="displayCommentSection()">
+          <b>
+            {{ readORhide }} Comments
+            <ng-container *ngIf="!displayCommentSectionFlag"
+              >[{{ commentCount }}]
+            </ng-container>
+          </b>
+        </label>
+      </a>
+    </div>
+    <hr />
+    <div class="row">
+      <ng-container *ngIf="displayCommentSectionFlag">
+        <app-article-comment *ngFor="let comment of comments">
+          <p>{{ comment }}</p>
+        </app-article-comment>
+      </ng-container>
     </div>
   </div>
 </div>
